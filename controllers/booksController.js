@@ -9,12 +9,6 @@ exports.createBook = async (req, res) => {
     const { title, author, publicationYear } = req.body;
     console.log(req.body);
     console.log(req.headers);
-    const authToken = req.headers.authorization;
-
-    // const user = jwt.verify(authToken, process.env.TOKEN_SECRET);
-    // if (!user) {
-    //   return res.status(400).json({ message: "Invalid account" });
-    // }
 
     const newBook = new Book({ title, author, publicationYear });
     const savedBook = await newBook.save();
